@@ -1,0 +1,99 @@
+
+.wrapper{
+  width: 50%;
+  margin-top: 50px;
+}
+
+.greetings{
+    color: #C5C7CA;
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: left;
+    padding-bottom: 12px;
+}
+
+.header-text{
+    color: #7F8084;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: left;
+}
+
+
+.logOut-text{
+    @extend .header-text;
+    font-weight: 600;
+    text-align: right;
+}
+
+.create-post-container{
+    margin-top: 40px;
+    border-radius: 8px;
+    border: 2px solid #35373B;
+    background: #27292D;
+    padding: 24px 20px;
+}
+
+.wrap-profile{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 0px 16px; 
+}
+
+.create-post-text{
+    color: #C5C7CA;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 8px;
+}
+
+.create-post-textArea{
+    border-radius: 8px;
+    background: #191920;
+    padding: 32px 28px 32px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.textArea-content{
+    color: #7F8084;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    text-align: left;
+}
+
+.circle{
+    background: #27292D;
+    border-radius: 50%;
+    height: 40px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emoji-container{
+    padding: 0px 16px;
+}
+
+.post-button{
+    border-radius: 4px;
+    background: #4A96FF;
+    width: 15%;
+    margin-top: 16px;
+    padding: 12px 38px;
+    float: right;
+    color: #fff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
