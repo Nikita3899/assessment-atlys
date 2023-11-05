@@ -1,41 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import style from './formCompoent.module.scss'
 import clsx from 'clsx';
+import appLogo from '../assets/Logo.svg'
 import { Button, Form, Input, message } from 'antd';
 
-const FormComponent = () => {
-
-  const [userDetails, setUserDetails] = useState({
-    userName:'',
-    email:'',
-    password:''
-  });
+const FormComponent = (
+    {setIsShowHomePage,setUserDetails}:{setIsShowHomePage?:any; setUserDetails?:any,}) => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [isShowDashboard, setIsShowDashboard] = useState(false)
-
-  useEffect(() => {
-    // Check if the user is already registered in local storage
-    console.log(userDetails,'jhgfhbj')
-    const storedUserDetails = localStorage.getItem('userDetails');
-    if (storedUserDetails) {
-      setUserDetails(JSON.parse(storedUserDetails));
-    }
-  }, [userDetails.password]);
 
   const handleLogIn = () =>{
     setIsLoggedIn(!isLoggedIn); 
   }
 
+
   const onFinish = (values: any) => {
     const storedUserDetails = localStorage.getItem('userDetails');
 
     if(storedUserDetails){
-
         const userStored = JSON.parse(storedUserDetails);
         if((values.usernameEmail === userStored.userName || values.email === userStored.email) && values.password === userStored.password ){
             message.success('LogIn Successfull')
-            setIsShowDashboard(true)
+            setIsShowHomePage(true)
+            setUserDetails({
+                userName:userStored.userName,
+                email:userStored.email,
+                password:userStored.password
+            })
         }else{
             message.error('Incorrect Credentials!')
         }
@@ -59,10 +50,13 @@ const FormComponent = () => {
   }
 
   return (
+    <div className={style['form-wrapper']} style={{marginTop: '10%'}}>
+    <div className={style['logo']}>
+      <img src={appLogo} alt="logo not found"/>
+    </div>
     <div className={style['main-container']}>
       <div className={clsx(style['text-default'],style['heading-text'])}>
         {isLoggedIn ? 'WELCOME BACK' : 'SIGN UP' }
-      
       </div>
       <div className={style['login-text']}>{isLoggedIn ? 'Log into your account' : 'Create an account to continue'}</div>
       <div className={style['login-form']}>
@@ -132,6 +126,8 @@ const FormComponent = () => {
     </Form>
     </div>
       </div>
+    </div>
+  
   )
 }
 

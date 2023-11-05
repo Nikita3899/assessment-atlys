@@ -7,6 +7,20 @@
     padding: 0px 24px;
 }
 
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between ;
+  }
+  
+  .logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 49px;
+  }
+
 .login-form{
     :global(.ant-form-item-label >label){
         color: #C5C7CA !important;
@@ -38,6 +52,7 @@
       }
 
 }
+
 
 .input-text{
     color: #7F8084 !important;
